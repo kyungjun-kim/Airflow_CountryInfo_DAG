@@ -73,6 +73,9 @@ with DAG(
     schedule = '30 6 * * 6', # 0 - Sunday, …, 6 - Saturday
 ) as dag:
     
+    schema = 'kyungjun' # 자신의 스키마로 변경
+    table = 'country_info'
     results = extract_transform()
-    load("kyungjun", "country_info", results)
+    
+    load(schema, table, results)
 
